@@ -1,168 +1,65 @@
 ---
-title: API Reference
-
-language_tabs:
-  - shell
-  - ruby
-  - python
+title: Deliv Private API Reference
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://api.deliv.co/docs/v2'>Deliv Public API Documentation</a>
+  - <a href='https://deliv.co/dev/dashboard'>Developer API Dashboard</a>
 
 includes:
-  - errors
+  - users
+  - deliveries
+  - sweeps
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Deliv provides same day delivery from top retailers to their customers
+using a crowd-sourced workforce. The Deliv API provides a simple interface
+to creating and managing deliveries with the Deliv service.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We've designed the Deliv API in a RESTful way such that the consumption for
+your team should be as easy as possible.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+<aside class="warning">
+This is the **private** version of the API, and should only be used internally. 
+For any questions on this documentation (or the API), please 
+contact us at [eng@deliv.co](mailto:eng@deliv.co).
+</aside>
 
-# Authentication
+## Status Codes
+The Deliv API uses conventional HTTP response codes to indicate success or 
+failure on all requests.
 
-> To authorize, use this code:
+|Status Code         |Result                         |
+|--------------------|-------------------------------|
+|**200 OK**          |Request completed as expected. |
+|**201 Created**     |Used for requests that create new objects (i.e. DeliveryEstimate, Delivery). |
+|**204 No Content**  |The server has completed the request but does not need to return a body (i.e. DELETE requests). |
+|**400 Bad Request** |The request contains invalid/missing information or is out of context. The status text will contain more specific message(s). |
+|**401 Unauthorized**|Authentication credentials were missing or incorrect. |
+|**403 Forbidden**   |The request is understood, but it has been refused or access is not allowed. |
+|**404 Not Found**   |The requested resource could not be found. |
+|**50X Errors**      |Occur when something goes wrong in the Deliv API. |
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+## Dates and Timezones
 
-```python
-import 'kittn'
+All dates and times in the Deliv API are expressed in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601),
+with a UTC offset.
 
-api = Kittn.authorize('meowmeowmeow')
-```
+#### Example: 
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`2013-08-23T15:46:20Z`
 
 <aside class="notice">
-You must replace `meowmeowmeow` with your personal API key.
+You can identify ISO 8691 with a UTC offset by the trailing `Z`
 </aside>
 
-# Kittens
+# Resources
 
-## Get All Kittens
+TBD
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import 'kittn'
-
-api = Kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import 'kittn'
-
-api = Kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/3"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the cat to retrieve
 
