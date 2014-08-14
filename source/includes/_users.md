@@ -200,7 +200,7 @@ Updates the details of a user record.
 $ curl -X POST https://api.deliv.co/v1/users/forgot_password?email=foo@bar.com
 ```
 
-> Response:
+> The response for this call will be empty:
 
 ```javascript
 { }
@@ -215,5 +215,5 @@ with a user's email, will initiate an email to them to recover their password.
 
 |Argument      |Type       |Description       |
 |--------------|-----------|------------------|
-|email         |string         |(**Required**) The email of the [user](#users) to reset the password for |
+|email         |string     |(**Required**) The email of the [user](#users) to reset the password for |
 

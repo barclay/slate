@@ -7,6 +7,8 @@ toc_footers:
 
 includes:
   - users
+  - accounts
+  - stores
   - deliveries
   - sweeps
 
@@ -22,11 +24,16 @@ to creating and managing deliveries with the Deliv service.
 We've designed the Deliv API in a RESTful way such that the consumption for
 your team should be as easy as possible.
 
+This version of the documentation augments the [public v2 API docs](http://api.deliv.co/docs), 
+and is meant to be a companion of sorts. 
+
 <aside class="warning">
-This is the **private** version of the API, and should only be used internally. 
+As this is the **private** version of the API, it should **only** be used internally. 
+</aside>
+
 For any questions on this documentation (or the API), please 
 contact us at [eng@deliv.co](mailto:eng@deliv.co).
-</aside>
+
 
 ## Status Codes
 The Deliv API uses conventional HTTP response codes to indicate success or 
@@ -59,7 +66,22 @@ You can identify ISO 8691 with a UTC offset by the trailing `Z`
 
 # Resources
 
-TBD
+## Stores
 
+A store is an object that represents one of you physical brick and mortar
+places of business, where our drivers pickup packages from you for your customers.
+
+|Attribute                  |Type        |Description       |
+|---------------------------|------------|------------------|
+|id                         |string      |                  |
+|id_alias                   |string      |Optional unique id matching your internal representation
+|name                       |string      |                  |
+|phone                      |string      |                  |
+|suite\_number              |string      |                  |
+|address\_line\_1           |string      |                  |
+|address\_line\_2           |string      |                  |
+|address\_city              |string      |                  |
+|address\_state             |string      |Two letter abbreviation (i.e. 'CA')|
+|address\_zipcode           |string      |                  |
 
 
