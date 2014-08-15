@@ -11,6 +11,7 @@ includes:
   - stores
   - deliveries
   - sweeps
+  - updates
 
 search: true
 ---
@@ -29,6 +30,11 @@ and is meant to be a companion of sorts.
 
 <aside class="warning">
 As this is the **private** version of the API, it should **only** be used internally. 
+</aside>
+
+<aside class="notice">
+    Please keep in mind this is a living document, and is subject to change
+    at will. 
 </aside>
 
 For any questions on this documentation (or the API), please 

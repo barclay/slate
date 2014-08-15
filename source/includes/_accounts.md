@@ -120,7 +120,7 @@ Retrieves the details of an account that has previously been created.
 
 |Argument    |Type       |Description       |
 |------------|-----------|------------------|
-|id          |string     |(**Required**) The id of the [account](#account)|
+|id          |string     |(**Required**) The id of the [account](#accounts)|
 
 ## List the Stores of an Account
 
@@ -163,4 +163,4 @@ Retrieves a list of stores that belong to a given account.
 
 |Argument    |Type       |Description       |
 |------------|-----------|------------------|
-|id          |string     |(**Required**) The id of the [account](#account)|
+|id          |string     |(**Required**) The id of the [account](#accounts)|
